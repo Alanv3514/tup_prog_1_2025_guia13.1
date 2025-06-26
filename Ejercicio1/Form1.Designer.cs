@@ -28,50 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnRegistrar = new Button();
+            btnCargarViaje = new Button();
+            btnResumenFinal = new Button();
             button4 = new Button();
             listBoxPatentes = new ListBox();
             label1 = new Label();
             labelCantViajes = new Label();
             SuspendLayout();
             // 
-            // button1
+            // btnRegistrar
             // 
-            button1.Location = new Point(32, 37);
-            button1.Name = "button1";
-            button1.Size = new Size(82, 46);
-            button1.TabIndex = 0;
-            button1.Text = "Registrar";
-            button1.UseVisualStyleBackColor = true;
+            btnRegistrar.Location = new Point(32, 37);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(82, 46);
+            btnRegistrar.TabIndex = 0;
+            btnRegistrar.Text = "Registrar";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
-            // button2
+            // btnCargarViaje
             // 
-            button2.Location = new Point(32, 89);
-            button2.Name = "button2";
-            button2.Size = new Size(82, 46);
-            button2.TabIndex = 1;
-            button2.Text = "Cargar Viaje";
-            button2.UseVisualStyleBackColor = true;
+            btnCargarViaje.Enabled = false;
+            btnCargarViaje.Location = new Point(32, 89);
+            btnCargarViaje.Name = "btnCargarViaje";
+            btnCargarViaje.Size = new Size(82, 46);
+            btnCargarViaje.TabIndex = 1;
+            btnCargarViaje.Text = "Cargar Viaje";
+            btnCargarViaje.UseVisualStyleBackColor = true;
+            btnCargarViaje.Click += btnCargarViaje_Click;
             // 
-            // button3
+            // btnResumenFinal
             // 
-            button3.Location = new Point(32, 141);
-            button3.Name = "button3";
-            button3.Size = new Size(82, 46);
-            button3.TabIndex = 2;
-            button3.Text = "Resumen Final";
-            button3.UseVisualStyleBackColor = true;
+            btnResumenFinal.Enabled = false;
+            btnResumenFinal.Location = new Point(32, 141);
+            btnResumenFinal.Name = "btnResumenFinal";
+            btnResumenFinal.Size = new Size(82, 46);
+            btnResumenFinal.TabIndex = 2;
+            btnResumenFinal.Text = "Resumen Final";
+            btnResumenFinal.UseVisualStyleBackColor = true;
+            btnResumenFinal.Click += btnResumenFinal_Click;
             // 
             // button4
             // 
             button4.Location = new Point(32, 193);
-            button4.Name = "button4";
+            button4.Name = "btnSalir";
             button4.Size = new Size(82, 46);
             button4.TabIndex = 3;
             button4.Text = "Salir";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += btnSalir_Click;
             // 
             // listBoxPatentes
             // 
@@ -109,9 +115,9 @@
             Controls.Add(label1);
             Controls.Add(listBoxPatentes);
             Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnResumenFinal);
+            Controls.Add(btnCargarViaje);
+            Controls.Add(btnRegistrar);
             Name = "Form1";
             Text = "Principal";
             ResumeLayout(false);
@@ -120,9 +126,9 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnRegistrar;
+        private Button btnCargarViaje;
+        private Button btnResumenFinal;
         private Button button4;
         private Label label1;
         public ListBox listBoxPatentes;
