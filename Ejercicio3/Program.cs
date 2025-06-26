@@ -1,4 +1,4 @@
-namespace Ejercicio3
+namespace Ejercicio3.VOF
 {
     internal static class Program
     {

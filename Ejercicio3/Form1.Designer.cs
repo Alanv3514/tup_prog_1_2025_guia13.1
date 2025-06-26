@@ -1,4 +1,4 @@
-﻿namespace Ejercicio3
+﻿namespace Ejercicio3.VOF
 {
     partial class Form1
     {
@@ -28,50 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnCargarViaje = new Button();
+            btnResumenFinal = new Button();
+            btnSalir = new Button();
             listBoxPatentes = new ListBox();
             label1 = new Label();
             labelCantViajes = new Label();
+            btnRegistrar = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btnCargarViaje
             // 
-            button1.Location = new Point(32, 37);
-            button1.Name = "button1";
-            button1.Size = new Size(82, 46);
-            button1.TabIndex = 0;
-            button1.Text = "Registrar";
-            button1.UseVisualStyleBackColor = true;
+            btnCargarViaje.Enabled = false;
+            btnCargarViaje.Location = new Point(32, 89);
+            btnCargarViaje.Name = "btnCargarViaje";
+            btnCargarViaje.Size = new Size(82, 46);
+            btnCargarViaje.TabIndex = 1;
+            btnCargarViaje.Text = "Cargar Viaje";
+            btnCargarViaje.UseVisualStyleBackColor = true;
+            btnCargarViaje.Click += btnCargarViaje_Click;
             // 
-            // button2
+            // btnResumenFinal
             // 
-            button2.Location = new Point(32, 89);
-            button2.Name = "button2";
-            button2.Size = new Size(82, 46);
-            button2.TabIndex = 1;
-            button2.Text = "Cargar Viaje";
-            button2.UseVisualStyleBackColor = true;
+            btnResumenFinal.Enabled = false;
+            btnResumenFinal.Location = new Point(32, 141);
+            btnResumenFinal.Name = "btnResumenFinal";
+            btnResumenFinal.Size = new Size(82, 46);
+            btnResumenFinal.TabIndex = 2;
+            btnResumenFinal.Text = "Resumen Final";
+            btnResumenFinal.UseVisualStyleBackColor = true;
+            btnResumenFinal.Click += btnResumenFinal_Click;
             // 
-            // button3
+            // btnSalir
             // 
-            button3.Location = new Point(32, 141);
-            button3.Name = "button3";
-            button3.Size = new Size(82, 46);
-            button3.TabIndex = 2;
-            button3.Text = "Resumen Final";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(32, 193);
-            button4.Name = "button4";
-            button4.Size = new Size(82, 46);
-            button4.TabIndex = 3;
-            button4.Text = "Salir";
-            button4.UseVisualStyleBackColor = true;
+            btnSalir.Location = new Point(32, 193);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(82, 46);
+            btnSalir.TabIndex = 3;
+            btnSalir.Text = "Salir";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // listBoxPatentes
             // 
@@ -100,18 +96,28 @@
             labelCantViajes.TabIndex = 6;
             labelCantViajes.Text = "-";
             // 
+            // btnRegistrar
+            // 
+            btnRegistrar.Location = new Point(32, 37);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(82, 46);
+            btnRegistrar.TabIndex = 7;
+            btnRegistrar.Text = "Registrar";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(541, 274);
+            Controls.Add(btnRegistrar);
             Controls.Add(labelCantViajes);
             Controls.Add(label1);
             Controls.Add(listBoxPatentes);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnSalir);
+            Controls.Add(btnResumenFinal);
+            Controls.Add(btnCargarViaje);
             Name = "Form1";
             Text = "Principal";
             ResumeLayout(false);
@@ -120,12 +126,12 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btnCargarViaje;
+        private Button btnResumenFinal;
+        private Button btnSalir;
         private Label label1;
         public ListBox listBoxPatentes;
         public Label labelCantViajes;
+        private Button btnRegistrar;
     }
 }

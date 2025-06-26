@@ -1,4 +1,4 @@
-﻿namespace Ejercicio1.VO
+﻿namespace Ejercicio3.VOF
 {
     partial class Fresumen
     {
@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBoxPatente = new ListBox();
+            listBoxResumen = new ListBox();
             btnSalir = new Button();
             SuspendLayout();
             // 
-            // listBoxPatente
+            // listBoxResumen
             // 
-            listBoxPatente.FormattingEnabled = true;
-            listBoxPatente.ItemHeight = 15;
-            listBoxPatente.Location = new Point(12, 12);
-            listBoxPatente.Name = "listBoxPatente";
-            listBoxPatente.Size = new Size(272, 184);
-            listBoxPatente.TabIndex = 0;
+            listBoxResumen.FormattingEnabled = true;
+            listBoxResumen.ItemHeight = 15;
+            listBoxResumen.Location = new Point(12, 12);
+            listBoxResumen.Name = "listBoxResumen";
+            listBoxResumen.Size = new Size(272, 184);
+            listBoxResumen.TabIndex = 0;
             // 
             // btnSalir
             // 
@@ -57,15 +57,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(293, 233);
             Controls.Add(btnSalir);
-            Controls.Add(listBoxPatente);
+            Controls.Add(listBoxResumen);
             Name = "Fresumen";
             Text = "Fresumen";
             ResumeLayout(false);
         }
 
         #endregion
-
-        private ListBox listBoxPatente;
         private Button btnSalir;
+        public ListBox listBoxResumen;
     }
 }

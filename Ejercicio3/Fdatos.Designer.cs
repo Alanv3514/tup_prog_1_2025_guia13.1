@@ -1,4 +1,4 @@
-﻿namespace Ejercicio1.VO
+﻿namespace Ejercicio3.VOF
 {
     partial class Fdatos
     {
