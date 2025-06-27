@@ -1,77 +1,31 @@
 using Ejercicio4;
 using Ejercicio4.Modelos;
+using Ejercicio4.VOCS.Modelos;
 
 namespace Ejercicio4
 {
     public partial class Form1 : Form
     {
-        Vehiculo[] vehiculos = new Vehiculo[15];
-        int cantidadVehiculos = 0;
-        int cantidadViajes = 0;
 
+        Servicio SVehiculos = new Servicio();
         public Form1()
         {
             InitializeComponent();
         }
-
-        public int BuscarVehiculo(string pat)
-        {
-            int res = -1;
-            for (int i = 0; i < cantidadVehiculos; i++)
-            {
-                if (vehiculos[i].VerPatente() == pat)
-                    res = i;
-            }
-            return res;
-        }
-
-        public void Ordenar()
-        {
-            Vehiculo VAux = null;
-
-            for (int i = 0; i < cantidadVehiculos - 1; i++)
-            {
-                for (int j = i + 1; j < cantidadVehiculos; j++)
-                {
-                    if (vehiculos[i].VerKilometraje() > vehiculos[j].VerKilometraje())
-                    {
-                        VAux = vehiculos[j];
-                        vehiculos[j] = vehiculos[i];
-                        vehiculos[i] = VAux;
-                    }
-                }
-            }
-        }
-
-        public double VerPromedioKm()
-        {
-            double acum = 0;
-            for (int i = 0; i < cantidadVehiculos; i++)
-            {
-                acum += vehiculos[i].VerKilometraje();
-            }
-            return (acum / cantidadVehiculos);
-        }
-
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             Fdatos fdatos = new Fdatos();
             if (fdatos.ShowDialog() == DialogResult.OK)
             {
-                if (BuscarVehiculo(fdatos.tBpatente.Text) == -1)
+                if (SVehiculos.CrearVehiculo(fdatos.tBpatente.Text, Convert.ToDouble(fdatos.tBkilometraje.Text)))
                 {
 
-                    vehiculos[cantidadVehiculos] = new Vehiculo();
-                    vehiculos[cantidadVehiculos].CrearVehiculo(fdatos.tBpatente.Text, Convert.ToDouble(fdatos.tBkilometraje.Text));
-
                     this.listBoxPatentes.Items.Add(fdatos.tBpatente.Text);
-
                     this.btnCargarViaje.Enabled = true;
                     this.btnResumenFinal.Enabled = true;
-                    cantidadVehiculos++;
 
-                    if (cantidadVehiculos == 15)
+                    if (SVehiculos.CVehiculos == 15)
                     {
                         this.btnRegistrar.Enabled = false;
                     }
@@ -91,12 +45,10 @@ namespace Ejercicio4
 
             if (fdatos.ShowDialog() == DialogResult.OK)
             {
-                int idx = BuscarVehiculo(fdatos.tBpatente.Text);
-                if (idx != -1)
+
+                if (SVehiculos.CargarViaje(fdatos.tBpatente.Text, Convert.ToDouble(fdatos.tBkilometraje.Text)))
                 {
-                    vehiculos[idx].CargarViaje(Convert.ToDouble(fdatos.tBkilometraje.Text));
-                    cantidadViajes++;
-                    this.labelCantViajes.Text = $"{cantidadViajes}";
+                    this.labelCantViajes.Text = $"{SVehiculos.CViajes}";
                 }
                 else
                 {
@@ -109,12 +61,12 @@ namespace Ejercicio4
         private void btnResumenFinal_Click(object sender, EventArgs e)
         {
             Fresumen fresumen = new Fresumen();
-            Ordenar();
-            for (int i = 0; i < cantidadVehiculos; i++)
+            SVehiculos.Ordenar();
+            for (int i = 0; i < SVehiculos.CVehiculos; i++)
             {
-                fresumen.listBoxResumen.Items.Add($"Kilometraje:{vehiculos[i].VerKilometraje(),10:f2} - Patentes {vehiculos[i].VerPatente()}");
+                fresumen.listBoxResumen.Items.Add($"Kilometraje:{SVehiculos.VerKilometraje(i),10:f2} - Patentes {SVehiculos.VerPatente(i)}");
             }
-            fresumen.listBoxResumen.Items.Add($"Promedio Kilometros:{VerPromedioKm(),10:f2} - Viajes Totales: {cantidadViajes}");
+            fresumen.listBoxResumen.Items.Add($"Promedio Kilometros:{SVehiculos.VerPromedioKm(),10:f2} - Viajes Totales: {SVehiculos.CViajes}");
             fresumen.ShowDialog();
 
         }

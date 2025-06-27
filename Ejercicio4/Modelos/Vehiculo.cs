@@ -12,7 +12,7 @@ namespace Ejercicio4.Modelos
         private string patente="";
         private double kilometraje;
 
-        public void CrearVehiculo(string pat, double km)
+        public Vehiculo(string pat, double km)
         {
                 this.patente = pat;
                 this.kilometraje = km;
