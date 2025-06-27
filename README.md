@@ -28,6 +28,7 @@ El manejo de Vectores de Indice Comun se encapsula en una clase Servicio para se
 +----------------------------------------------------+
 ```
 ## 3- Ejercicio 3: utilizano Vector de Objetos.
+(Esta es la opcion que mas se adapta a lo pedido en la consigna.)
 Se define la clase Vehiculo y se maneja la lógica del vector de vehiculos en la clase Form1.
 ### 🚗 Clase Vehiculo (Ejercicio 3)
 ```plaintext
@@ -44,6 +45,7 @@ Se define la clase Vehiculo y se maneja la lógica del vector de vehiculos en la
 +-------------------------------+
 ```
 ## 3- Ejercicio 4: utilizano Vector de Objetos y Clase Servicio.
+(Esta es la opcion que personalmente prefiero, se respeta mejor el encapsulamiento y principio de responsabilidad unica lo que mejora en escalabilidad y mantenimiento)
 Se define la clase Vehiculo y se maneja la lógica del vector de vehiculos dentro de una Clase Servicio para poder encapsular la lógica y aislarla de la interfaz grafica..
 ### 🛠️ Clase Servicio (Ejercicio 4)
 ```plaintext
